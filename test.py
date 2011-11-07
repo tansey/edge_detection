@@ -70,11 +70,5 @@ for (x,y) in itertools.product(range(bw.size[0]), range(bw.size[1])):
 	if is_max:
 		edges_pix[x,y] = 0
 
-"""
-for x, x_vals in enumerate(convolution):
-	for y, y_vals in enumerate(convolution[x]):
-		edges_pix[x,y] = int(convolution[x][y] * 255)
-"""
-
 edges.save("edges.png", "PNG")
 
