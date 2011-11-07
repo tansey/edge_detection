@@ -1,0 +1,3 @@
+# Edge Detection via Gaussian Filtering and Convolution
+
+This is an implementation of the edge detection algorithm in the book Artificial Intelligence: A Modern Approach (third edition). The algorithm detects edges in an image by first converting it to black and white, then smoothing it by applying a Gaussian filter, and finally detecting edge pixels as those pixels whose gradient (change in intensity from a neighbor) is a local maximum (larger than any surrounding pixel's change) and whose gradient is above some user-specified threshold.
