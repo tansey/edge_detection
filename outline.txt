@@ -7,7 +7,7 @@ Python Imaging Library
 		- cd Imaging-1.1.7
 		- python setup.py build
 		- python setup.py install
-	- Linux: ???
+	- Linux lab: Already installed
 
 - Testing installation
 	- Download a PNG image file, for example: [stapler link]
@@ -19,3 +19,35 @@ Python Imaging Library
 		- bw = im.convert("L")
 		- bw.save("bw_stapler.png", "PNG")
 
+- Additional information:
+	- Creating images
+		- im = Image.new(screen.mode, screen.size)
+		- im_pixels = im.load()
+		- # iterate over your array and set the image pixels with im_pixels[x,y] = ...
+		- im.save("image.png", "PNG")
+	- Online handbook: http://www.pythonware.com/library/pil/handbook/image.htm
+
+Homework Assignment
+- Step 1) Implementing a Gaussian Filter
+	- Create a new array to hold all the convoluted pixels
+	- Iterate over the black and white image
+	- Iterate over every neighboring pixel
+	- Tips
+		- Set your standard deviation (sigma) to 1 pixel
+		- The convolution of a pixel and a given neighbor is the neighbor's pixel value (0-255) multiplied by the Gaussian function.
+		- Since we are approximating with sigma=1 instead of sigma=infinity, the sum of all the Gaussian weights will not add up to one. Make sure to normalize your convoluted pixels by the sum of all the Gaussian weights. If you don't, you will notice the picture becomes very dark: this is because lower values in a black and white image correspond to darker pixels, and an unnormalized convoluted pixel will always be darker it originally was.
+		- Make sure you save your filtered images when debugging, so you verify visually that your algorithm is working as expected.
+
+- Step 2) Implementing an Edge Detector
+	- Create a new array to hold all the gradients
+	- Calculate the maximum gradient from the pixel to any of its eight neighbors
+	- Create another array, to hold all the edge pixels and their orientation
+	- A pixel is considered an edge pixel if its gradient is larger than any of its neighbors' gradients and it is above the threshold specified
+	- Your output should be a 2-D array of tuples (is_edge,orientation) where is_edge is a boolean that's true if there is an edge pixel at that location and orientation is an integer value such that 0 <= orientation < 360. An orientation of 0 corresponds to straight up, 180 is straight down, etc. See the figure below.
+	- Tips
+		- Set your edge threshold to 10
+		- Make sure you save your edge detected images when debugging, so you verify visually that your algorithm is working as expected. When creating an image of detected edges, set all edge pixels to 0 (black) and all non-edge pixels to 255 (white).
+
+- Step 3) ???
+
+- Step 4) Profit!
