@@ -1,0 +1,21 @@
+Python Imaging Library
+- Installation
+	- http://www.pythonware.com/products/pil/
+	- Windows installer: http://effbot.org/downloads/PIL-1.1.7.win32-py2.6.exe
+	- Mac OS X needs source: http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+		- tar xzf Imaging-1.1.7.tar.gz
+		- cd Imaging-1.1.7
+		- python setup.py build
+		- python setup.py install
+	- Linux: ???
+
+- Testing installation
+	- Download a PNG image file, for example: [stapler link]
+	- Run python REPL
+		- import Image
+		- im = Image.open("stapler.png")
+		- print im.format, im.size, im.mode
+			- PNG (600, 468) RGBA
+		- bw = im.convert("L")
+		- bw.save("bw_stapler.png", "PNG")
+
